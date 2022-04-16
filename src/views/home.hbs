@@ -1,0 +1,26 @@
+{{> navbar}}
+<div class="container mt-3">
+  <header class="my-5">
+    <h1>Bienvenido a mi Pokedex</h1>
+    <img src="/img/pokebola.png" class="rounded mx-auto d-block" width="100">
+    <p>
+      Bienvenido mi pequeña enciclopedia Pokémon en español.
+    </p>
+    <a href="/about">Conóceme</a>
+  </header>
+  <hr>
+  <h3 class="mt-5 mb-3">Últimos Pokemones ingresados</h3>
+  {{#each articles}}
+    <div class="card border-info mb-3">
+      <div class="card-body">
+        <img src="{{this.image}}" width="250px" height="250px">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.content}}</p>
+        <p class="card-text">{{this.tipo}}</p>
+        <p class="card-text">{{this.gender}}</p>
+        <p class="card-text">{{this.generation}}</p>
+        <a href="/articles/{{this.id}}" class="btn btn-info btn-sm">Leer más</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

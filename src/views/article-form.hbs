@@ -1,0 +1,49 @@
+{{> navbar}}
+<div class="container mt-3">
+  <h1>
+    {{#if id}}
+      Actualizando la Pokedex "{{title}}" ({{id}})
+    {{else}}
+      Agregar nuevo Pokémon
+    {{/if}}
+  </h1>
+  <!--
+    Este formulario se usará tanto para edición como creación, este if nos dice que si viene un id, entonces será un update, si no, será un create.
+    Para el action, si viene un id será un post a /articles/:id/update, si no, será un post a /articles/create.
+  -->
+  <form action="/articles/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Nombre Pokémon</label>
+      <input type="text" class="form-control" name="title" aria-describedby="titleHelp" required="true" value="{{title}}">
+      <div id="titleHelp" class="form-text">Indica el nombre del Pokémon</div>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Descripción</label>
+      <textarea class="form-control" name="content" rows="3" aria-describedby="contentHelp">{{content}}</textarea>
+      <div id="contentHelp" class="form-text">Describe al Pokémon</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Tipo</label>
+      <input type="text" class="form-control" name="tipo" aria-describedby="tipoHelp" required="true" value="{{tipo}}">
+      <div id="tipoHelp" class="form-text">Indica cual es el tipo del Pokémon</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Género</label>
+      <input type="text" class="form-control" name="gender" aria-describedby="genderHelp" required="true" value="{{gender}}">
+      <div id="genderHelp" class="form-text">Indica cual es su Género</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Generación</label>
+      <input type="text" class="form-control" name="generation" aria-describedby="generationHelp" required="true" value="{{generation}}">
+      <div id="generationHelp" class="form-text">Generación</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Imagen</label>
+      <input type="text" class="form-control" name="image" aria-describedby="imageHelp" required="true" value="{{image}}">
+      <div id="imageHelp" class="form-text">Utiliza una buena imagen para el Pokémon</div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-info">Enviar</button>
+    </div>
+  </form>
+</div>
